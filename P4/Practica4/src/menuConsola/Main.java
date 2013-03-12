@@ -10,9 +10,9 @@ public class Main {
 		menu.addOption(new SumOption());
 		menu.addOption(new DifferenceOption());
 		try {
-			menu.execute(null);
+			while ((int) menu.execute(null) != -2)
+				;
 		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

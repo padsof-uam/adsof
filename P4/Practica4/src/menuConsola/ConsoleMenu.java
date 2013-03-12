@@ -25,16 +25,13 @@ public class ConsoleMenu implements IExecutable {
 		int counter = 0;
 		int option;
 		System.out.println("***************************");
-		System.out.println("** Aplicación Suma Resta **");
+		System.out.println("** Aplicaci√≥n Suma Resta **");
 		System.out.println("***************************");
 		System.out.println("Opciones:");
 
 		for (MenuOption mo : options) {
 			counter++;
-			if (mo.isActive())
-				System.out.println(counter + ".- " + mo.getName());
-			else
-				System.out.println(" .- [" + mo.getName() + "]");
+			mo.print(counter);
 		}
 		
 		System.out.println("-------------------------");
@@ -55,7 +52,7 @@ public class ConsoleMenu implements IExecutable {
 		}
 		catch(ExecutionException e)
 		{
-			System.out.println("Error de ejecución en " + e.getMethod() + ": " + e.getMessage());
+			System.out.println("Error de ejecuci√≥n en " + e.getMethod() + ": " + e.getMessage());
 		}
 		catch(Exception e)
 		{

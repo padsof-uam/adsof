@@ -54,4 +54,12 @@ public abstract class MenuOption implements IExecutable, Comparable<MenuOption> 
 		return name.compareToIgnoreCase(o.getName());
 	}
 	
+	public void print(int optionNumber)
+	{
+		if (isActive())
+			System.out.println(optionNumber + ".- " + getName());
+		else
+			System.out.println(" .- [" + getName() + "]");
+	}
+	
 }
