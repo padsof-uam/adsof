@@ -1,5 +1,9 @@
 package menuConsola;
 
+import menuConsola.base.ConsoleMenu;
+import menuConsola.menus.DifferenceOption;
+import menuConsola.menus.SumOption;
+
 public class Main {
 
 	/**

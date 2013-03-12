@@ -1,3 +1,0 @@
-2013-03-05 11:47:45.758 [Worker-4] INFO    com.objectaid.uml.model.manage.DiagramManager getFactories: com.objectaid.uml.diagramFactories[ucls]: com.objectaid.uml.cls.model.ClassDiagramFactory@7024d0fa
-2013-03-05 11:47:45.775 [Worker-4] INFO    com.objectaid.uml.model.manage.DiagramManager getFactories: com.objectaid.uml.diagramFactories[useq]: com.objectaid.uml.seq.model.SequenceDiagramFactory@37ada1e0
-2013-03-05 12:52:49.507 [ModalContext] INFO    com.objectaid.uml.model.manage.LanguageElementManager getLanguageElementFactories: com.objectaid.uml.languageElementFactories: com.objectaid.uml.java.JavaElementFactory

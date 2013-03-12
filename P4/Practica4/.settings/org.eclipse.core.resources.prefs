@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
-encoding//src/menuConsola/ConsoleMenu.java=UTF-8
 encoding//src/menuConsola/ConsoleUtils.java=UTF-8
 encoding//src/menuConsola/ExecutionException.java=UTF-8
-encoding//src/menuConsola/IExecutable.java=UTF-8
+encoding//src/menuConsola/base/ConsoleMenu.java=UTF-8
+encoding//src/menuConsola/base/IExecutable.java=UTF-8
+encoding//src/menuConsola/menus/DifferenceOption.java=UTF-8
+encoding//src/menuConsola/menus/SumOption.java=UTF-8
