@@ -1,0 +1,12 @@
+package practica4;
+
+/**
+ * Interfaz con un método que ejecuta una acción.
+ * 
+ * @author Guillermo Julián Moreno
+ * @author Víctor de Juan Sanz
+ * 
+ */
+public interface IEjecutable {
+	Object ejecutar(Object o) throws ExecutionException;
+}

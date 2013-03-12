@@ -1,0 +1,35 @@
+Tabla resumen
+-------------
+Tarea			Durac.	cO	cP	fO	fP	Holgura
+Inicio			0		0	0	0	0	0
+Entrevistas		6		0	2	6	8	2
+Estudio_Prob	8		0	0	8	8	0
+Analisis		13		8	8	21	21	0
+Presupuesto		9		21	21	30	30	0
+Diseño_Log		5		30	39	35	44	9
+Desarrollo		24		44	44	68	68	0
+Diseño_GUI		14		30	30	44	44	0
+Desarrollo		24		44	44	68	68	0
+Documentacion	20		44	52	64	72	8
+Pruebas			2		68	68	70	70	0
+Correcciones	2		70	70	72	72	0
+Entrega			10		72	72	82	82	0
+Fin				0		82	82	82	82	0
+
+---------------
+Duración estimada del proyecto : 82
+--------------
+
+Tabla crítica ordenada
+----------------------
+Tarea		c0	Duracion
+Inicio			0	0
+Estudio_Prob	0	8
+Analisis		8	13
+Presupuesto		21	9
+Desarrollo		44	24
+Diseño_GUI		30	14
+Pruebas			68	2
+Correcciones	70	2
+Entrega			72	10
+Fin				82	0

@@ -1,0 +1,41 @@
+java Apartado5 1 1 1 2 4 2 4 1
+Mas alejado (4,2)
+Distancia total original: 5.0
+Distancia total desplazados: 5.0
+Puntos originales: 
+(1,1)
+(1,2)
+(4,2)
+(4,1)
+Puntos desplazados: 
+(-3,-1)
+(-3,0)
+(0,0)
+(0,-1)
+
+java Apartado5 1 1
+Más alejado (1,1)
+Distancia total original: 0.0
+Distancia total desplazados: 0.0
+Puntos originales: 
+(1,1)
+Puntos desplazados: 
+(0,0)
+
+
+java Apartado5 1 1 1 2 3 2 4 2 4 1
+Más alejado (4,2)
+Distancia total original: 5.0
+Distancia total desplazados: 5.0
+Puntos originales: 
+(1,1)
+(1,2)
+(3,2)
+(4,2)
+(4,1)
+Puntos desplazados: 
+(-3,-1)
+(-3,0)
+(-1,0)
+(0,0)
+(0,-1)

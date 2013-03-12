@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+package practica4;
+
+/**
+ * @author gjulianm
+ *
+ */
+public class Menu implements IExecutable {
+	ArrayList<MenuOption> options;
+	
+	
+	
+	/* (non-Javadoc)
+	 * @see practica4.IExecutable#ejecutar(java.lang.Object)
+	 */
+	@Override
+	public Object ejecutar(Object o) throws ExecutionException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

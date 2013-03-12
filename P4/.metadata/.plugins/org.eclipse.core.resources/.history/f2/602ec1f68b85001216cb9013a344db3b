@@ -1,0 +1,11 @@
+package menuConsola;
+
+public class SumOption extends MenuOption {
+
+	@Override
+	public Object execute(Object o) throws ExecutionException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

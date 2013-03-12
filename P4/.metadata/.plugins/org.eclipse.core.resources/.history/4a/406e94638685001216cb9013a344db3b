@@ -1,0 +1,46 @@
+/**
+ * 
+ */
+package practica4;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
+/**
+ * @author gjulianm
+ *
+ */
+public class Menu implements IExecutable {
+	ArrayList<MenuOption> options = new ArrayList<MenuOption>();
+	
+	
+	/* (non-Javadoc)
+	 * @see practica4.IExecutable#ejecutar(java.lang.Object)
+	 */
+	@Override
+	public Object ejecutar(Object o) throws ExecutionException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public void addOption(MenuOption option)
+	{
+		options.add(option);
+	}
+	
+	public void addOptions(Collection<MenuOption> list)
+	{
+		options.addAll(list);
+	}
+	
+	public void sortOptions()
+	{
+		Collections.sort(options);
+	}
+	
+	public void deleteOption(MenuOption o)
+	{
+		options.remove(o);
+	}
+}

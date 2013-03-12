@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package practica4;
+
+/**
+ * @author gjulianm
+ *
+ */
+public abstract class MenuOption implements IExecutable {
+
+	/* (non-Javadoc)
+	 * @see practica4.IEjecutable#ejecutar(java.lang.Object)
+	 */
+	@Override
+	public Object ejecutar(Object o) throws ExecutionException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

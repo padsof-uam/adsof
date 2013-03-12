@@ -1,0 +1,14 @@
+package practica4;
+
+public class HelpOption extends MenuOption {
+
+	public HelpOption(String name, String description, boolean isActive) {
+		super(name, description, isActive);
+	}
+
+	@Override
+	public Object execute(Object o) throws ExecutionException {
+		List<MenuOption> options = (List<MenuOption>) o;
+	}
+
+}

@@ -1,0 +1,11 @@
+package practica4;
+
+public class HelpOption extends MenuOption {
+
+	@Override
+	public Object execute(Object o) throws ExecutionException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

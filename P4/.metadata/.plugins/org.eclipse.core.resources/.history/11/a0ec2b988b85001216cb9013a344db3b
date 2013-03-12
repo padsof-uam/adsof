@@ -1,0 +1,17 @@
+package menuConsola;
+
+public class SubMenuOption extends MenuOption {
+	ConsoleMenu menu;
+	
+	public SubMenuOption(String name, String description, boolean isActive) {
+		super(name, description, isActive);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public Object execute(Object o) throws ExecutionException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

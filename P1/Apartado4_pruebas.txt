@@ -1,0 +1,17 @@
+java Apartado4 0 0 0 2 0 2 2 2 2 7 3 7
+Distancia desde (0,0) a (0,2): 2.0
+Distancia desde (0,2) a (0,2): 0.0
+Distancia desde (0,2) a (2,2): 2.0
+Distancia desde (2,2) a (2,7): 5.0
+Distancia desde (2,7) a (3,7): 1.0
+Distancia total: 10.0
+Distancia parcial máxima: 5.0
+Se encontraron puntos contiguos duplicados
+
+--------------------------------------------
+java Apartado4 1 1 2 2 4 4 5 3
+Distancia desde (1,1) a (2,2): 1.4142135623730951
+Distancia desde (2,2) a (4,4): 2.8284271247461903
+Distancia desde (4,4) a (5,3): 1.4142135623730951
+Distancia total: 5.656854249492381
+Distancia parcial máxima: 2.8284271247461903
