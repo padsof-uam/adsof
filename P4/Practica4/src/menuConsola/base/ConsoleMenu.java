@@ -52,7 +52,10 @@ public class ConsoleMenu implements IExecutable {
 		System.out.println("a.- Ayuda");
 		System.out.println("s.- Salir");
 		if (lastOption != null)
+		{
 			System.out.println("z.- Deshacer");
+			System.out.println("y.- Rehacer");
+		}
 		System.out.println();
 
 		option = ConsoleUtils.readOptionAdditional(counter, lastOption != null);

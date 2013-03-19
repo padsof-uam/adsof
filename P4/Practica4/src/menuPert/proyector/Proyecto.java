@@ -292,4 +292,14 @@ public class Proyecto
 			}
 		} while (!queue.isEmpty());
 	}
+	
+	public void addTarea(Tarea t)
+	{
+		tabla_tareas.put(t.getNombre(), t);
+	}
+	
+	public Tarea getTarea(String name)
+	{
+		return tabla_tareas.get(name);
+	}
 }

@@ -9,4 +9,5 @@ package menuConsola.base;
  */
 public interface IUndoable {
 	public Object undo(Object o);
+	public Object redo(Object o);
 }

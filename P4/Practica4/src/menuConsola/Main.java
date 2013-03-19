@@ -14,8 +14,7 @@ public class Main {
 		menu.addOption(new SumOption());
 		menu.addOption(new DifferenceOption());
 		try {
-			while ((int) menu.execute(null) != -2)
-				;
+			while ((int) menu.execute(null) != -2);
 		} catch (ExecutionException e) {
 			e.printStackTrace();
 		}
