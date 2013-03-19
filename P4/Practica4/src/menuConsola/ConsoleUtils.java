@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ConsoleUtils {
 	static Scanner token = null;
 
-	private static Scanner getInputScanner() {
+	public static Scanner getInputScanner() {
 		if (token == null)
 			token = new Scanner(System.in);
 
@@ -16,8 +16,10 @@ public class ConsoleUtils {
 		int option;
 		String input;
 		Scanner scanner = getInputScanner();
+		
 		do {
 			System.out.print("Introduzca una opción > ");
+			
 			if (scanner.hasNextInt()) {
 				option = scanner.nextInt();
 			} else {
