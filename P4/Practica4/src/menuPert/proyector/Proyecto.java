@@ -28,6 +28,54 @@ public class Proyecto
 	private HashMap<String, Tarea>	tabla_tareas	= new HashMap<String, Tarea>();
 
 	/**
+	 * 
+	 * @return El peso optimista
+	 */
+	public double getPeso_op() {
+		return peso_op;
+	}
+
+	/**
+	 * 
+	 * @param peso_op el peso optimista para establecer.
+	 */
+	public void setPeso_op(double peso_op) {
+		this.peso_op = peso_op;
+	}
+
+	/**
+	 * 
+	 * @return el peso pesimista .
+	 */
+	public double getPeso_pes() {
+		return peso_pes;
+	}
+
+	/**
+	 * 
+	 * @param peso_pesimista para set establecido.
+	 */
+	public void setPeso_pes(double peso_pes) {
+		this.peso_pes = peso_pes;
+	}
+
+	/**
+	 * 
+	 * @return el peso probable.
+	 */
+	public double getPeso_prob() {
+		return peso_prob;
+	}
+
+	/**
+	 * 
+	 * @param peso_prob para ser establecido.
+	 */
+	public void setPeso_prob(double peso_prob) {
+		this.peso_prob = peso_prob;
+	}
+
+	/**
 	 * Constructor
 	 * 
 	 * @param file
@@ -291,5 +339,13 @@ public class Proyecto
 				checked.add(t);
 			}
 		} while (!queue.isEmpty());
+	}
+	/**
+	 * Just add a task to the proyect
+	 * @param name
+	 * @param task
+	 */
+	public void addTask(String name, Tarea task){
+		this.tabla_tareas.put(name, task);
 	}
 }

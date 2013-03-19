@@ -5,8 +5,8 @@ package menuPert.proyector;
  * falta sobreescribir el resto: ya devuelven el valor especificado para una
  * tarea final al pasar todos los par??metros de tiempo como 0.
  * 
- * @author V??ctor de Juan Sanz
- * @author Guillermo Juli??n Moreno
+ * @author Víctor de Juan Sanz
+ * @author Guillermo Julián Moreno
  */
 public class TareaInicio extends Tarea
 {
