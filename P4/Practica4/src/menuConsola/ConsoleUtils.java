@@ -12,7 +12,7 @@ public class ConsoleUtils {
 		return token;
 	}
 
-	public static int readOptionAdditional(int max) {
+	public static int readOptionAdditional(int max, boolean addUndoOption) {
 		int option;
 		String input;
 		Scanner scanner = getInputScanner();
@@ -26,10 +26,12 @@ public class ConsoleUtils {
 					option = -1;
 				else if (input.compareTo("s") == 0)
 					option = -2;
+				else if(input.compareTo("z") == 0)
+					option = -3;
 				else
 					option = -5; // Para que repita.
 			}
-		} while (option == 0 || option > max || option < -2);
+		} while (option == 0 || option > max || option < -2 || (addUndoOption && option == -3));
 
 		return option;
 	}

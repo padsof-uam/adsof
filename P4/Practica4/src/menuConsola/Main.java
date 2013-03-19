@@ -10,7 +10,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		ConsoleMenu menu = new ConsoleMenu();
+		ConsoleMenu menu = new ConsoleMenu("Aplicaci—n Suma Resta");
 		menu.addOption(new SumOption());
 		menu.addOption(new DifferenceOption());
 		try {
