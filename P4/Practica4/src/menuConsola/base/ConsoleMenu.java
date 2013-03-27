@@ -18,9 +18,8 @@ import menuConsola.menus.HelpOption;
 public class ConsoleMenu implements IExecutable {
 	private ArrayList<MenuOption> options = new ArrayList<MenuOption>();
 	private HelpOption help = new HelpOption("Ayuda", "Muestra la ayuda", true);
-	private IUndoable lastOption = null;
-	private boolean redoable = false;
-	private Object lastArg = null;
+	private IUndoable lastOptionUndo = null,lastOptionRedo = null;
+	private Object lastArgUndo = null,lastArgRedo = null;
 	private String title;
 
 	public ConsoleMenu(String title)
@@ -52,39 +51,40 @@ public class ConsoleMenu implements IExecutable {
 		System.out.println("-------------------------");
 		System.out.println("a.- Ayuda");
 		System.out.println("s.- Salir");
-		if (lastOption != null)
-		{
+		if (lastOptionUndo != null)
 			System.out.println("z.- Deshacer");
+		if (lastOptionRedo != null)
 			System.out.println("y.- Rehacer");
-		}
+
 		System.out.println();
 	
-		option = ConsoleUtils.readOptionAdditional(counter, lastOption != null,redoable);
+		option = ConsoleUtils.readOptionAdditional(counter, lastOptionUndo != null, lastOptionRedo != null);
 
 		try {
 			if (option > 0) {
-				redoable = false;
 				MenuOption mo = options.get(option - 1);
 				if (mo.isActive()){
 					mo.execute(o);
 					if (IUndoable.class.isInstance(mo)) {
-						lastOption = (IUndoable) mo;
-						lastArg = o;
+						lastOptionUndo = (IUndoable) mo;
+						lastArgUndo = o;
 					}
 				}
 			}
 			else if (option == -1) {
 				help.execute(options);
 			} else if (option == -3) {
-				redoable = true;
-				lastOption.undo(lastArg);
-				lastOption = null;
-				lastArg = null;
+				lastOptionUndo.undo(lastArgUndo);
+				lastOptionRedo = lastOptionUndo;
+				lastOptionUndo = null;
+				lastArgRedo = lastArgUndo;
+				lastArgUndo = null;
 			} else if (option == -4){
-				redoable = false;
-				lastOption.redo(lastArg);
-				lastOption = null;
-				lastArg = null;
+				lastOptionRedo.redo(lastArgRedo);
+				lastOptionUndo = lastOptionRedo;
+				lastOptionRedo = null;
+				lastArgUndo = lastArgRedo;
+				lastArgRedo = null;
 			} else
 				System.out.println("Saliendo.");
 		} catch (ExecutionException e) {

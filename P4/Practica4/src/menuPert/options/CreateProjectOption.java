@@ -7,7 +7,7 @@ import menuConsola.base.MenuOption;
 import menuPert.menu.ProyectoContainer;
 import menuPert.proyector.*;
 
-public class CreateProjectOption extends MenuOption implements IUndoable {
+public class CreateProjectOption extends MenuOption {
 
 	public CreateProjectOption() {
 		super("Crear un nuevo proyecto", "Crea un nuevo proyecto. Si ya hay uno creado ", true);
@@ -35,19 +35,6 @@ public class CreateProjectOption extends MenuOption implements IUndoable {
 
 	Proyecto deleted;
 	
-	@Override
-	public Object undo(Object o) {
-		ProyectoContainer container = (ProyectoContainer) o;
-		deleted = container.proyecto;
-		container.proyecto = null;
-		return container;
-	}
 
-	@Override
-	public Object redo(Object o) {
-		ProyectoContainer container = (ProyectoContainer) o;
-		container.proyecto = deleted;
-		return container;
-	}
 
 }
