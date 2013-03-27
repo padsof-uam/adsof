@@ -16,8 +16,17 @@ import menuConsola.menus.HelpOption;
  * 
  */
 public class ConsoleMenu implements IExecutable {
-	ArrayList<MenuOption> options = new ArrayList<MenuOption>();
-	HelpOption help = new HelpOption("Ayuda", "Muestra la ayuda", true);
+	private ArrayList<MenuOption> options = new ArrayList<MenuOption>();
+	private HelpOption help = new HelpOption("Ayuda", "Muestra la ayuda", true);
+	private IUndoable lastOption = null;
+	private boolean redoable = false;
+	private Object lastArg = null;
+	private String title;
+
+	public ConsoleMenu(String title)
+	{
+		this.title = title;
+	}
 	
 	/*
 	 * (non-Javadoc)
@@ -28,43 +37,66 @@ public class ConsoleMenu implements IExecutable {
 	public Object execute(Object o) throws ExecutionException {
 		int counter = 0;
 		int option;
-		System.out.println("***************************");
-		System.out.println("** Aplicación Suma Resta **");
-		System.out.println("***************************");
+
+		String header = new String(new char[title.length() + 3 * 2]).replace('\0', '*');
+		System.out.println(header);
+		System.out.println("** " + title  + " **");
+		System.out.println(header);
 		System.out.println("Opciones:");
 
 		for (MenuOption mo : options) {
 			counter++;
 			mo.print(counter);
 		}
-		
+
 		System.out.println("-------------------------");
 		System.out.println("a.- Ayuda");
 		System.out.println("s.- Salir");
+		if (lastOption != null)
+		{
+			System.out.println("z.- Deshacer");
+			System.out.println("y.- Rehacer");
+		}
 		System.out.println();
-		
-		option = ConsoleUtils.readOptionAdditional(counter);
-		
-		try
-		{
-			if(option > 0)
-				options.get(option - 1).execute(null);
-			else if(option == -1)
+	
+		option = ConsoleUtils.readOptionAdditional(counter, lastOption != null,redoable);
+
+		try {
+			if (option > 0) {
+				redoable = false;
+				MenuOption mo = options.get(option - 1);
+				if (mo.isActive()){
+					mo.execute(o);
+					if (IUndoable.class.isInstance(mo)) {
+						lastOption = (IUndoable) mo;
+						lastArg = o;
+					}
+				}
+			}
+			else if (option == -1) {
 				help.execute(options);
-			else
+			} else if (option == -3) {
+				redoable = true;
+				lastOption.undo(lastArg);
+				lastOption = null;
+				lastArg = null;
+			} else if (option == -4){
+				redoable = false;
+				lastOption.redo(lastArg);
+				lastOption = null;
+				lastArg = null;
+			} else
 				System.out.println("Saliendo.");
+		} catch (ExecutionException e) {
+			System.out.println("Error de ejecución en " + e.getMethod() + ": "
+					+ e.getMessage());
+		} catch (Exception e) {
+			System.out.println("Error general " + e.getClass().getName() + ": "
+					+ e.getMessage());
 		}
-		catch(ExecutionException e)
-		{
-			System.out.println("Error de ejecución en " + e.getMethod() + ": " + e.getMessage());
-		}
-		catch(Exception e)
-		{
-			System.out.println("Error general " + e.getClass().getName() + ": " + e.getMessage());
-		}
-		
+
 		return option;
-	}	
+	}
 
 	public void addOption(MenuOption option) {
 		options.add(option);
@@ -81,4 +113,9 @@ public class ConsoleMenu implements IExecutable {
 	public void deleteOption(MenuOption o) {
 		options.remove(o);
 	}
+	
+	public void setActive(boolean active,int index){
+		this.options.get(index).setActive(active);
+	}
+	
 }

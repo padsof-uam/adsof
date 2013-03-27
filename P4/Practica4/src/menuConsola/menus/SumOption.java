@@ -2,6 +2,7 @@ package menuConsola.menus;
 
 import java.util.Scanner;
 
+import menuConsola.ConsoleUtils;
 import menuConsola.ExecutionException;
 import menuConsola.base.MenuOption;
 
@@ -14,7 +15,7 @@ public class SumOption extends MenuOption {
 	
 	@Override
 	public Object execute(Object o) throws ExecutionException {
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = ConsoleUtils.getInputScanner();
 		int a, b;
 		
 		System.out.println("A: ");
@@ -23,8 +24,6 @@ public class SumOption extends MenuOption {
 		b = scanner.nextInt();
 		
 		System.out.println("A + B = " + (a + b));
-		
-		scanner.close();
 		
 		return a + b;
 	}

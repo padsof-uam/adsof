@@ -341,11 +341,71 @@ public class Proyecto
 		} while (!queue.isEmpty());
 	}
 	/**
-	 * Just add a task to the proyect
-	 * @param name
-	 * @param task
+	 * 
+	 * @param t: Tarea para ser añadida al proyecto
 	 */
-	public void addTask(String name, Tarea task){
-		this.tabla_tareas.put(name, task);
+	public void addTarea(Tarea t)
+	{
+		tabla_tareas.put(t.getNombre(), t);
+	}
+	
+	/**
+	 * 
+	 * @param nombre de la tarea.
+	 * @return la tarea con el nombre pasado como argumentos.
+	 */
+	public Tarea getTarea(String name)
+	{
+		return tabla_tareas.get(name);
+	}
+	/**
+	 * 
+	 * @param aux, la tarea para ser eliminada.
+	 */
+	public void eliminarTarea(Tarea aux) {
+		this.tabla_tareas.remove(aux.getNombre());		
+	}
+
+	public void calcularAux(Tarea t){
+		t.getComienzoOptimista();
+		t.getFinOptimista();
+		t.calculaComienzoPesimista();
+		t.calculaFinPesimista();
+		t.getDuracionEstimada();
+		t.getHolgura();
+	}
+	public void calcularTiempos() {
+
+		Queue<Tarea> queue = new LinkedList<Tarea>();
+		List<Tarea> checked = new ArrayList<Tarea>();
+		Tarea task;
+		queue.add(tabla_tareas.get("Inicio"));
+		do
+		{
+			task = queue.poll();
+
+			if (checked.contains(task))
+				continue;
+
+			if (task.getHolgura() == 0)
+				calcularAux(task);
+			checked.add(task);
+
+			for (Tarea t : task.getConsecuentes())
+			{
+				queue.addAll(t.getConsecuentes());
+				if (t.getHolgura() == 0 && !checked.contains(t)){
+					calcularAux(t);
+				}
+				checked.add(t);
+			}
+		} while (!queue.isEmpty());
+
+
+		
+	}
+
+	public void setFile(String file) {
+			this.file = file;
 	}
 }
