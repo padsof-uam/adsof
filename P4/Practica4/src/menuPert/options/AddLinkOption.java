@@ -1,6 +1,3 @@
-/**
- * 
- */
 package menuPert.options;
 
 import java.util.Scanner;
@@ -14,7 +11,9 @@ import menuPert.proyector.Proyecto;
 import menuPert.proyector.Tarea;
 
 /**
- * @author gjulianm
+ * Opción de añadir un enlace entre tareas.
+ * @author Guillermo Julián Moreno
+ * @author Víctor de Juan Sanz
  * 
  */
 public class AddLinkOption extends MenuOption implements IUndoable {

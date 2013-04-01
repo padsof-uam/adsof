@@ -11,10 +11,13 @@ import menuConsola.ConsoleUtils;
 import menuConsola.ExecutionException;
 import menuConsola.menus.HelpOption;
 
+
 /**
- * @author gjulianm
+ * 
+ * @author Guillermo Julián y Victor de Juan
  * 
  */
+
 public class ConsoleMenu implements IExecutable {
 	private ArrayList<MenuOption> options = new ArrayList<MenuOption>();
 	private HelpOption help = new HelpOption("Ayuda", "Muestra la ayuda", true);
