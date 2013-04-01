@@ -5,9 +5,8 @@ import menuConsola.ExecutionException;
 public class SubMenuOption extends MenuOption {
 	ConsoleMenu menu;
 	
-	public SubMenuOption(String name, String description, boolean isActive) {
-		super(name, description, isActive);
-		// TODO Auto-generated constructor stub
+	public SubMenuOption() {
+		super("SubMenu","Mostrar submenu",true);
 	}
 
 	@Override

@@ -278,4 +278,14 @@ public class Tarea
 	{
 		return getComienzoPesimista() - getComienzoOptimista();
 	}
+
+	public void eliminarConsecuente(Tarea task) {
+		consecuentes.remove(task);
+		
+	}
+
+	public void eliminarPrecedente(Tarea task) {
+		// TODO Auto-generated method stub
+		
+	}
 }

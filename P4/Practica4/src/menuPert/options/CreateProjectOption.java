@@ -33,8 +33,4 @@ public class CreateProjectOption extends MenuOption {
 		return container;
 	}
 
-	Proyecto deleted;
-	
-
-
 }
