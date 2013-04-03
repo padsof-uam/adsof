@@ -21,11 +21,10 @@ import java.util.StringTokenizer;
  * @author Guillermo Juli??n Moreno
  * 
  */
-public class Proyecto
-{
-	private String					file;
-	private double					peso_op, peso_pes, peso_prob;
-	private HashMap<String, Tarea>	tabla_tareas	= new HashMap<String, Tarea>();
+public class Proyecto {
+	private String file;
+	private double peso_op, peso_pes, peso_prob;
+	private HashMap<String, Tarea> tabla_tareas = new HashMap<String, Tarea>();
 
 	/**
 	 * 
@@ -37,7 +36,8 @@ public class Proyecto
 
 	/**
 	 * 
-	 * @param peso_op el peso optimista para establecer.
+	 * @param peso_op
+	 *            el peso optimista para establecer.
 	 */
 	public void setPeso_op(double peso_op) {
 		this.peso_op = peso_op;
@@ -53,7 +53,8 @@ public class Proyecto
 
 	/**
 	 * 
-	 * @param peso_pesimista para set establecido.
+	 * @param peso_pes
+	 *            para set establecido.
 	 */
 	public void setPeso_pes(double peso_pes) {
 		this.peso_pes = peso_pes;
@@ -69,7 +70,8 @@ public class Proyecto
 
 	/**
 	 * 
-	 * @param peso_prob para ser establecido.
+	 * @param peso_prob
+	 *            para ser establecido.
 	 */
 	public void setPeso_prob(double peso_prob) {
 		this.peso_prob = peso_prob;
@@ -81,8 +83,7 @@ public class Proyecto
 	 * @param file
 	 *            Archivo con los datos de proyecto.
 	 */
-	public Proyecto(String file)
-	{
+	public Proyecto(String file) {
 		this.file = file;
 	}
 
@@ -94,23 +95,19 @@ public class Proyecto
 	 * @throws Exception
 	 *             Error de interpretaci??n del fichero.
 	 */
-	public void readFile() throws IOException, Exception
-	{
+	public void readFile() throws IOException, Exception {
 		BufferedReader buffer = null;
 
 		tabla_tareas.put("Inicio", new TareaInicio());
 		tabla_tareas.put("Fin", new TareaFinal());
 
-		try
-		{
+		try {
 			buffer = new BufferedReader(new InputStreamReader(
 					new FileInputStream(file)));
 
 			processFile(buffer);
 
-		}
-		finally
-		{
+		} finally {
 			if (buffer != null)
 				buffer.close();
 		}
@@ -124,30 +121,27 @@ public class Proyecto
 	 * @throws Exception
 	 *             Error de interpretaci??n del archivo.
 	 */
-	private void processFile(BufferedReader buffer) throws Exception
-	{
+	private void processFile(BufferedReader buffer) throws Exception {
 		String buff = new String();
 		char first;
-		while ((buff = buffer.readLine()) != null)
-		{
+		while ((buff = buffer.readLine()) != null) {
 			if (buff.isEmpty())
 				continue;
 
 			first = buff.charAt(0);
-			switch (first)
-			{
-				case 'P':
-					procesaPesos(buff);
-					break;
-				case 'T':
-					procesaTarea(buff);
-					break;
-				case 'C':
-					procesaConexion(buff);
-					break;
-				case '#':
-				default:
-					break;
+			switch (first) {
+			case 'P':
+				procesaPesos(buff);
+				break;
+			case 'T':
+				procesaTarea(buff);
+				break;
+			case 'C':
+				procesaConexion(buff);
+				break;
+			case '#':
+			default:
+				break;
 			}
 		}
 	}
@@ -158,20 +152,17 @@ public class Proyecto
 	 * @param buff
 	 *            L??nea.
 	 */
-	private void procesaConexion(String buff)
-	{
+	private void procesaConexion(String buff) {
 		StringTokenizer tokens = new StringTokenizer(buff);
 		tokens.nextToken();
 		String tarea = tokens.nextToken();
 		Tarea inicial = tabla_tareas.get(tarea);
 
-		while (tokens.hasMoreTokens())
-		{
+		while (tokens.hasMoreTokens()) {
 			String siguienteNombre = tokens.nextToken();
 			Tarea siguienteTarea = tabla_tareas.get(siguienteNombre);
 
-			if (siguienteTarea != null)
-			{
+			if (siguienteTarea != null) {
 				inicial.anadirTareaConsecuente(siguienteTarea);
 				siguienteTarea.anadirTareaAntecedente(inicial);
 			}
@@ -187,8 +178,7 @@ public class Proyecto
 	 * @throws Exception
 	 *             Error de interpretaci??n del fichero.
 	 */
-	private void procesaTarea(String buff) throws Exception
-	{
+	private void procesaTarea(String buff) throws Exception {
 		StringTokenizer tokenizer = new StringTokenizer(buff);
 
 		if (tokenizer.countTokens() != 5)
@@ -216,8 +206,7 @@ public class Proyecto
 	 * @param buff
 	 *            L??nea.
 	 */
-	private void procesaPesos(String buff)
-	{
+	private void procesaPesos(String buff) {
 		StringTokenizer tokens = new StringTokenizer(buff);
 
 		// Descartamos la 'P'
@@ -234,12 +223,11 @@ public class Proyecto
 	 * @param t
 	 *            Tarea
 	 */
-	private void printTareaCritica(Tarea t)
-	{
+	private void printTareaCritica(Tarea t) {
 		String additionalTab = t.getNombre().length() >= 8 ? "" : "\t";
-		String line = String
-				.format("%s%s\t%d\t%d\n", t.getNombre(), additionalTab, t
-						.getComienzoOptimista(), t.getDuracionEstimada());
+		String line = String.format("%s%s\t%d\t%d\n", t.getNombre(),
+				additionalTab, t.getComienzoOptimista(),
+				t.getDuracionEstimada());
 		System.out.print(line);
 	}
 
@@ -249,21 +237,19 @@ public class Proyecto
 	 * @param t
 	 *            Tarea.
 	 */
-	private void printTarea(Tarea t)
-	{
+	private void printTarea(Tarea t) {
 		String additionalTab = t.getNombre().length() >= 8 ? "" : "\t";
-		String line = String.format("%s\t%s%d\t%d\t%d\t%d\t%d\t%d\n", t
-				.getNombre(), additionalTab, t.getDuracionEstimada(), t
-				.getComienzoOptimista(), t.getComienzoPesimista(), t
-				.getFinOptimista(), t.getFinPesimista(), t.getHolgura());
+		String line = String.format("%s\t%s%d\t%d\t%d\t%d\t%d\t%d\n",
+				t.getNombre(), additionalTab, t.getDuracionEstimada(),
+				t.getComienzoOptimista(), t.getComienzoPesimista(),
+				t.getFinOptimista(), t.getFinPesimista(), t.getHolgura());
 		System.out.print(line);
 	}
 
 	/**
 	 * Imprime la tabla de tareas por pantalla.
 	 */
-	public void printTareas()
-	{
+	public void printTareas() {
 		Queue<Tarea> queue = new LinkedList<Tarea>();
 		List<Tarea> printed = new ArrayList<Tarea>();
 		Tarea task;
@@ -274,8 +260,7 @@ public class Proyecto
 
 		queue.add(tabla_tareas.get("Inicio"));
 
-		do
-		{
+		do {
 			task = queue.poll();
 
 			if (printed.contains(task))
@@ -284,8 +269,7 @@ public class Proyecto
 			printTarea(task);
 			printed.add(task);
 
-			for (Tarea t : task.getConsecuentes())
-			{
+			for (Tarea t : task.getConsecuentes()) {
 				queue.addAll(t.getConsecuentes());
 				printTarea(t);
 				printed.add(t);
@@ -296,8 +280,7 @@ public class Proyecto
 	/**
 	 * Imprime por pantalla la duraci??n estimada del proyecto.
 	 */
-	public void printDuracionEstimada()
-	{
+	public void printDuracionEstimada() {
 		Tarea fin = tabla_tareas.get("Fin");
 		System.out.println();
 		System.out.println("---------------");
@@ -309,8 +292,7 @@ public class Proyecto
 	/**
 	 * Imprime la tabla de camino cr??tico del proyecto.
 	 */
-	public void printTablaCritica()
-	{
+	public void printTablaCritica() {
 		Queue<Tarea> queue = new LinkedList<Tarea>();
 		List<Tarea> checked = new ArrayList<Tarea>();
 		Tarea task;
@@ -320,8 +302,7 @@ public class Proyecto
 
 		queue.add(tabla_tareas.get("Inicio"));
 
-		do
-		{
+		do {
 			task = queue.poll();
 
 			if (checked.contains(task))
@@ -331,8 +312,7 @@ public class Proyecto
 				printTareaCritica(task);
 			checked.add(task);
 
-			for (Tarea t : task.getConsecuentes())
-			{
+			for (Tarea t : task.getConsecuentes()) {
 				queue.addAll(t.getConsecuentes());
 				if (t.getHolgura() == 0 && !checked.contains(t))
 					printTareaCritica(t);
@@ -340,33 +320,36 @@ public class Proyecto
 			}
 		} while (!queue.isEmpty());
 	}
+
 	/**
 	 * 
-	 * @param t: Tarea para ser añadida al proyecto
+	 * @param t
+	 *            : Tarea para ser añadida al proyecto
 	 */
-	public void addTarea(Tarea t)
-	{
+	public void addTarea(Tarea t) {
 		tabla_tareas.put(t.getNombre(), t);
 	}
-	
+
 	/**
 	 * 
-	 * @param nombre de la tarea.
+	 * @param name
+	 *            nombre de la tarea.
 	 * @return la tarea con el nombre pasado como argumentos.
 	 */
-	public Tarea getTarea(String name)
-	{
+	public Tarea getTarea(String name) {
 		return tabla_tareas.get(name);
 	}
+
 	/**
 	 * 
-	 * @param aux, la tarea para ser eliminada.
+	 * @param aux
+	 *            , la tarea para ser eliminada.
 	 */
 	public void eliminarTarea(Tarea aux) {
-		this.tabla_tareas.remove(aux.getNombre());		
+		this.tabla_tareas.remove(aux.getNombre());
 	}
 
-	public void calcularAux(Tarea t){
+	public void calcularAux(Tarea t) {
 		t.getComienzoOptimista();
 		t.getFinOptimista();
 		t.calculaComienzoPesimista();
@@ -374,14 +357,18 @@ public class Proyecto
 		t.getDuracionEstimada();
 		t.getHolgura();
 	}
+
+	/**
+	 * Calcula los tiempos pesimistas,optimistas y probables de las tareas del
+	 * proyecto
+	 */
 	public void calcularTiempos() {
 
 		Queue<Tarea> queue = new LinkedList<Tarea>();
 		List<Tarea> checked = new ArrayList<Tarea>();
 		Tarea task;
 		queue.add(tabla_tareas.get("Inicio"));
-		do
-		{
+		do {
 			task = queue.poll();
 
 			if (checked.contains(task))
@@ -391,21 +378,18 @@ public class Proyecto
 				calcularAux(task);
 			checked.add(task);
 
-			for (Tarea t : task.getConsecuentes())
-			{
+			for (Tarea t : task.getConsecuentes()) {
 				queue.addAll(t.getConsecuentes());
-				if (t.getHolgura() == 0 && !checked.contains(t)){
+				if (t.getHolgura() == 0 && !checked.contains(t)) {
 					calcularAux(t);
 				}
 				checked.add(t);
 			}
 		} while (!queue.isEmpty());
 
-
-		
 	}
 
 	public void setFile(String file) {
-			this.file = file;
+		this.file = file;
 	}
 }
