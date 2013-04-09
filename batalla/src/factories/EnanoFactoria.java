@@ -5,7 +5,7 @@ import java.util.Random;
 
 import criaturas.Enano;
 
-public class EnanoFactoria implements CriaturaFactoria {
+public class EnanoFactoria implements CriaturaFactoria<Enano> {
 
 	@Override
 	public Enano crearCriatura() {
