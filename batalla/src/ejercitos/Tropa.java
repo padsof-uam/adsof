@@ -5,12 +5,10 @@ import java.util.Calendar;
 import java.util.Random;
 
 import criaturas.Criatura;
-import criaturas.TipoEjercito;
 import factories.*;
 
 public class Tropa<C extends Criatura> {
 
-	TipoEjercito tipo;
 	int numGuerreros;
 	ArrayList<C> guerreros;
 
