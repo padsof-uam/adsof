@@ -15,9 +15,7 @@ public abstract class Criatura {
 	protected int ataque;
 	protected int defensa;
 	protected int heridas;
-	protected double prob_curar;
-	protected TipoEjercito tipo;
-	
+	protected double prob_curar;	
 	
 	public Criatura (int ataque, int defensa, int vida, int heridas, double prob_curar){
 		this.ataque = ataque;
@@ -27,18 +25,21 @@ public abstract class Criatura {
 		this.prob_curar = prob_curar;
 	}
 	
+	public Criatura (int ataque, int defensa, int vida, int heridas){
+		this.ataque = ataque;
+		this.defensa = defensa;
+		this.heridas = heridas;
+		this.vida = vida;
+		this.prob_curar = 0;
+		
+	}
 	/**
 	 * @return la probabilidad de curar
 	 */
 	public double getProb_curar(){
 		return prob_curar;
 	}
-	/**
-	 * @return el tipo
-	 */
-	public TipoEjercito getTipo() {
-		return tipo;
-	}
+
 	/**
 	 * @return la vida
 	 */
@@ -116,4 +117,5 @@ public abstract class Criatura {
 		//TODO:
 		return "ll";
 	}
+	
 }

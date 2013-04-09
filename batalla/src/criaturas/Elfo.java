@@ -1,10 +1,13 @@
 package criaturas;
 
-public class Elfo extends Criatura {
+
+public class Elfo extends CriaturaLibre {
+	final double prob_curar;
 	
 	public Elfo(int ataque, int defensa, int vida, int heridas){
-		super(ataque,defensa,vida,heridas,0.3);
-		this.tipo = TipoEjercito.Libres;
+		super(ataque,defensa,vida,heridas);
+		this.prob_curar = 0.3;
 	}
+
 
 }

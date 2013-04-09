@@ -1,10 +1,9 @@
 package criaturas;
 
-public class Enano extends Criatura {
+public class Enano extends CriaturaLibre {
 
 	public Enano(int ataque, int defensa, int vida, int heridas) {
-		super(ataque, defensa, vida, heridas, 0);
-		this.tipo = TipoEjercito.Libres;
+		super(ataque, defensa, vida, heridas);
 	}
 
 }

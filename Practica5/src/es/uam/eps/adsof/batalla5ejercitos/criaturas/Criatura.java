@@ -1,7 +1,7 @@
 /**
  * 
  */
-package adsof.batalla5ejercitos.criaturas;
+package adsof.batalla.criaturas;
 
 /**
  * @author Guillermo Julián Moreno - Víctor de Juan Sanz
