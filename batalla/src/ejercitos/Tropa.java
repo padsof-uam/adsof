@@ -37,7 +37,17 @@ public class Tropa<C extends Criatura> {
 	}
 
 	public void aplicarHeridas() {
-		for (Criatura aux : this.guerreros)
+		for (Criatura aux : this.guerreros){
 			aux.aplicarHeridas();
+			if (aux.estaMuerto()) numGuerreros--;
+		}
+	}
+	
+	public void actualizarEstado(){
+		ArrayList<C> muertos = new ArrayList<C>();
+		for (C aux : this.guerreros){
+			if (aux.estaMuerto()) muertos.add(aux); 
+		}
+		this.guerreros.removeAll(muertos);		
 	}
 }
