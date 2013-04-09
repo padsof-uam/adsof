@@ -13,7 +13,6 @@ import factories.HumanoFactoria;
 
 public class Tropa {
 
-	TipoEjercito tipo;
 	int numGuerreros;
 	ArrayList<Criatura> guerreros;
 
@@ -25,12 +24,6 @@ public class Tropa {
 			// TODO: donde se guardan...? ALguna cosa mejor que arrayList
 			guerreros.add(factoria.crearCriatura());
 		}
-		if (factoria.getClass() == ElfoFactoria.class
-				|| factoria.getClass() == EnanoFactoria.class
-				|| factoria.getClass() == HumanoFactoria.class)
-			tipo = TipoEjercito.Libres;
-		else 
-			tipo = TipoEjercito.Oscuras;
 	}
 
 	public boolean estaAniquilada() {

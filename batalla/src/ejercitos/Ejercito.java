@@ -1,6 +1,6 @@
 package ejercitos;
 
 
-public class Ejercito {
+public abstract class Ejercito {
 	//TODO:
 }

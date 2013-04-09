@@ -17,18 +17,18 @@ public abstract class Criatura {
 	protected int heridas;
 	protected double prob_curar;	
 	
-	public Criatura (int ataque, int defensa, int vida, int heridas, double prob_curar){
+	public Criatura (int ataque, int defensa, int vida, double prob_curar){
 		this.ataque = ataque;
 		this.defensa = defensa;
-		this.heridas = heridas;
+		this.heridas = 0;
 		this.vida = vida;
 		this.prob_curar = prob_curar;
 	}
 	
-	public Criatura (int ataque, int defensa, int vida, int heridas){
+	public Criatura (int ataque, int defensa, int vida){
 		this.ataque = ataque;
 		this.defensa = defensa;
-		this.heridas = heridas;
+		this.heridas = 0;
 		this.vida = vida;
 		this.prob_curar = 0;
 		
@@ -103,6 +103,7 @@ public abstract class Criatura {
 	 */
 	public void addHeridas(int numeroHeridas){
 		this.heridas += numeroHeridas;
+		
 	}
 	
 	/**
@@ -110,6 +111,11 @@ public abstract class Criatura {
 	 */
 	public void aplicarHeridas(){
 		this.vida -= this.heridas;
+		int i;
+		// Por eficiencia.
+		if( prob_curar > 0)
+			for (i=0;i<this.heridas;++i)
+				this.curarHeridas();
 		this.heridas = 0;
 	}
 	

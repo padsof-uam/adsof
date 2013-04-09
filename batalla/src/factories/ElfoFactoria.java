@@ -10,7 +10,7 @@ public class ElfoFactoria implements CriaturaFactoria{
 	@Override
 	public Elfo crearCriatura() {
 		Random r = new Random(Calendar.getInstance().getTimeInMillis());
-		return new Elfo(r.nextInt(3)+1,r.nextInt(3)+1,2,0);
+		return new Elfo(r.nextInt(3)+1,r.nextInt(3)+1,2);
 	}
 
 }
