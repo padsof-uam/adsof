@@ -10,7 +10,7 @@ import factories.CriaturaFactoria;
 public final class Dependency {
 	public static Map<Class<? extends Criatura>, Class<? extends CriaturaFactoria<?>>> classMap = new HashMap<Class<? extends Criatura>, Class<? extends CriaturaFactoria<?>>>(); 
 
-	public static <C extends Criatura> void Register(Class<C> generic, Class<CriaturaFactoria<? extends C>> impl)
+	public static <C extends Criatura> void Register(Class<C> generic, Class<? extends CriaturaFactoria<? extends C>> impl)
 	{
 		classMap.put(generic, impl);
 	}
@@ -21,7 +21,7 @@ public final class Dependency {
 			throw new ClassNotFoundException("Clase " + generic.getName() + " no encontrada.");
 		
 		@SuppressWarnings("unchecked")
-		Class<CriaturaFactoria<C>> cls = (Class<CriaturaFactoria<C>>) classMap.get(generic);
+		Class<? extends CriaturaFactoria<C>> cls = (Class<? extends CriaturaFactoria<C>>) classMap.get(generic);
 		
 		return cls.newInstance();
 	}
