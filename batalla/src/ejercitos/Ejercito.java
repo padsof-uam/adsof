@@ -18,11 +18,11 @@ public abstract class Ejercito<C extends Criatura> {
 		for(Class<? extends C> c : tropasMap.keySet())
 		{
 			CriaturaFactoria<? extends C> factoria = Dependency.Resolve(c);
-			List<Integer> numTropas = tropasMap.get(c);
+			List<Integer> tropasList = tropasMap.get(c);
 			
-			for(Integer i : numTropas)
+			for(Integer numTropas : tropasList)
 			{
-				Tropa<C> tropa = new Tropa<C>(factoria, i);
+				Tropa<C> tropa = new Tropa<C>(factoria, numTropas);
 				tropas.add(tropa);
 			}
 		}
