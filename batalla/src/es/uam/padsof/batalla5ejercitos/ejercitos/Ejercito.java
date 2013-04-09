@@ -1,4 +1,4 @@
-package ejercitos;
+package es.uam.padsof.batalla5ejercitos.ejercitos;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import util.Dependency;
 
-import criaturas.Criatura;
-import factories.CriaturaFactoria;
+import es.uam.padsof.batalla5ejercitos.criaturas.Criatura;
+import es.uam.padsof.batalla5ejercitos.factorias.CriaturaFactoria;
+import es.uam.padsof.batalla5ejercitos.util.Dependency;
 
 
 public abstract class Ejercito<C extends Criatura> {

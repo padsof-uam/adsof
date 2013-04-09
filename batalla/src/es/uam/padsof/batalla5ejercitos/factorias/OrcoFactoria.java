@@ -1,9 +1,9 @@
-package factories;
+package es.uam.padsof.batalla5ejercitos.factorias;
 
 import java.util.Calendar;
 import java.util.Random;
 
-import criaturas.Orco;
+import es.uam.padsof.batalla5ejercitos.criaturas.Orco;
 
 public class OrcoFactoria implements CriaturaFactoria<Orco>{
 

@@ -1,9 +1,9 @@
-package factories;
+package es.uam.padsof.batalla5ejercitos.factorias;
 
 import java.util.Calendar;
 import java.util.Random;
 
-import criaturas.Elfo;
+import es.uam.padsof.batalla5ejercitos.criaturas.Elfo;
 
 public class ElfoFactoria implements CriaturaFactoria<Elfo>{
 

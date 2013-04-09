@@ -1,9 +1,9 @@
-package factories;
+package es.uam.padsof.batalla5ejercitos.factorias;
 
 import java.util.Calendar;
 import java.util.Random;
 
-import criaturas.Enano;
+import es.uam.padsof.batalla5ejercitos.criaturas.Enano;
 
 public class EnanoFactoria implements CriaturaFactoria<Enano> {
 

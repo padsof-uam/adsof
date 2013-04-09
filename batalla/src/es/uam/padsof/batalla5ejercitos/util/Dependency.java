@@ -1,11 +1,11 @@
-package util;
+package es.uam.padsof.batalla5ejercitos.util;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import criaturas.Criatura;
 
-import factories.CriaturaFactoria;
+import es.uam.padsof.batalla5ejercitos.criaturas.Criatura;
+import es.uam.padsof.batalla5ejercitos.factorias.CriaturaFactoria;
 
 public final class Dependency {
 	public static Map<Class<? extends Criatura>, Class<? extends CriaturaFactoria<?>>> classMap = new HashMap<Class<? extends Criatura>, Class<? extends CriaturaFactoria<?>>>(); 

@@ -1,21 +1,27 @@
-package ejercitos;
+package es.uam.padsof.batalla5ejercitos.ejercitos;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
 
-import criaturas.Criatura;
-import factories.*;
+import es.uam.padsof.batalla5ejercitos.criaturas.Criatura;
+import es.uam.padsof.batalla5ejercitos.factorias.*;
 
 public class Tropa<C extends Criatura> {
 
-	int numGuerreros;
-	ArrayList<C> guerreros;
-
+	private int numGuerreros;
+	private ArrayList<C> guerreros;
+	private String nombreCriatura;
+	private Random rnd;
+	
 	public Tropa(CriaturaFactoria<? extends C> factoria, int numeroGuerreros) {
 		numGuerreros = numeroGuerreros;
 		guerreros = new ArrayList<C>();
-
+		rnd = new Random(Calendar.getInstance().getTimeInMillis() + numeroGuerreros);
+		
+		C dummy = factoria.crearCriatura();
+		nombreCriatura = dummy.getClass().getSimpleName();
+		
 		for (int i = 0; i < numeroGuerreros; ++i)
 			guerreros.add(factoria.crearCriatura());
 	}
@@ -25,14 +31,15 @@ public class Tropa<C extends Criatura> {
 	}
 
 	public void atacar(Tropa<?> oponente) {
-		// TODO: de momento atacamos a un aleatorio
+		if(oponente.estaAniquilada())
+			return;
+		
 		for (Criatura aux : guerreros)
 			aux.atacar(oponente.getCriatura());
 	}
 
 	public Criatura getCriatura() {
-		Random r = new Random(Calendar.getInstance().getTimeInMillis());
-		return this.guerreros.get(r.nextInt(guerreros.size()));
+		return this.guerreros.get(rnd.nextInt(guerreros.size()));
 
 	}
 
@@ -54,8 +61,8 @@ public class Tropa<C extends Criatura> {
 	}
 
 	@Override
-	public String toString() {
-		return "Tropa de " + this.guerreros.get(0).getClass()
-				+ "\nNumero de guerreros: " + this.numGuerreros;
+	public String toString() {		
+		return "Tropa de " + nombreCriatura
+				+ "\n\tNumero de guerreros: " + this.numGuerreros;
 	}
 }

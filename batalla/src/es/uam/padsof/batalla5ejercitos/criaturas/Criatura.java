@@ -1,13 +1,13 @@
 /**
  * 
  */
-package criaturas;
+package es.uam.padsof.batalla5ejercitos.criaturas;
 
 import java.util.Calendar;
 import java.util.Random;
 
 /**
- * @author Guillermo Julián Moreno - Víctor de Juan Sanz
+ * @author Guillermo Juli??n Moreno - V??ctor de Juan Sanz
  * 
  */
 public abstract class Criatura {
@@ -70,12 +70,12 @@ public abstract class Criatura {
 	}
 
 	/**
-	 * Indica si la criatura está muerta o no.
+	 * Indica si la criatura est?? muerta o no.
 	 * 
 	 * @return
 	 */
 	public boolean estaMuerto() {
-		return (this.vida == 0);
+		return (this.vida <= 0);
 	}
 
 	/**
@@ -104,7 +104,7 @@ public abstract class Criatura {
 	}
 
 	/**
-	 * Añade heridas a la criatura.
+	 * A??ade heridas a la criatura.
 	 * 
 	 * @param numeroHeridas
 	 */

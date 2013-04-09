@@ -1,9 +1,9 @@
-package ejercitos;
+package es.uam.padsof.batalla5ejercitos.ejercitos;
 
 import java.util.List;
 import java.util.Map;
 
-import criaturas.*;
+import es.uam.padsof.batalla5ejercitos.criaturas.*;
 
 
 public class EjercitoLibre extends Ejercito<CriaturaLibre> {

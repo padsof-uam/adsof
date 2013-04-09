@@ -1,9 +1,9 @@
-package factories;
+package es.uam.padsof.batalla5ejercitos.factorias;
 
 import java.util.Calendar;
 import java.util.Random;
 
-import criaturas.Humano;
+import es.uam.padsof.batalla5ejercitos.criaturas.Humano;
 
 public class HumanoFactoria implements CriaturaFactoria<Humano> {
 

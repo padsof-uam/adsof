@@ -1,4 +1,4 @@
-package criaturas;
+package es.uam.padsof.batalla5ejercitos.criaturas;
 
 public class Humano extends CriaturaLibre {
 
