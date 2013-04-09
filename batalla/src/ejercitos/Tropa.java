@@ -12,7 +12,7 @@ public class Tropa<C extends Criatura> {
 	int numGuerreros;
 	ArrayList<C> guerreros;
 
-	public Tropa(CriaturaFactoria<C> factoria, int numeroGuerreros) {
+	public Tropa(CriaturaFactoria<? extends C> factoria, int numeroGuerreros) {
 		numGuerreros = numeroGuerreros;
 		guerreros = new ArrayList<C>();
 
