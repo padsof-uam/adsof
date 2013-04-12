@@ -4,6 +4,7 @@ import java.util.*;
 
 import es.uam.padsof.batalla5ejercitos.criaturas.*;
 import es.uam.padsof.batalla5ejercitos.ejercitos.*;
+import es.uam.padsof.batalla5ejercitos.factorias.*;
 
 public class Batalla {
 	private EjercitoLibre ejLibre;
@@ -11,16 +12,18 @@ public class Batalla {
 	private Random rnd = new Random(Calendar.getInstance().getTimeInMillis());
 	
 	public Batalla() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-		Map<Class<? extends CriaturaOscura>, List<Integer>> coMap = new HashMap<Class<? extends CriaturaOscura>, List<Integer>>();
+		Map<Class<? extends CriaturaFactoria<? extends CriaturaOscura>>, List<Integer>> coMap = 
+				new HashMap<Class<? extends CriaturaFactoria<? extends CriaturaOscura>>, List<Integer>>();
 
-		coMap.put(Orco.class, Arrays.asList(25, 75));
-		coMap.put(Huargo.class, Arrays.asList(100));
+		coMap.put(OrcoFactoria.class, Arrays.asList(25, 75));
+		coMap.put(HuargoFactoria.class, Arrays.asList(100));
 		
-		Map<Class<? extends CriaturaLibre>, List<Integer>> clMap = new HashMap<Class<? extends CriaturaLibre>, List<Integer>>();
+		Map<Class<? extends CriaturaFactoria<? extends CriaturaLibre>>, List<Integer>> clMap = 
+				new HashMap<Class<? extends CriaturaFactoria<? extends CriaturaLibre>>, List<Integer>>();
 		
-		clMap.put(Humano.class, Arrays.asList(50,50,50,50));
-		clMap.put(Elfo.class, Arrays.asList(150));
-		clMap.put(Enano.class, Arrays.asList(25));
+		clMap.put(HumanoFactoria.class, Arrays.asList(50,50,50,50));
+		clMap.put(ElfoFactoria.class, Arrays.asList(150));
+		clMap.put(EnanoFactoria.class, Arrays.asList(25));
 		
 		ejLibre = new EjercitoLibre(clMap);
 		ejOscuro = new EjercitoOscuro(coMap);

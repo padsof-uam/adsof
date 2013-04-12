@@ -9,20 +9,19 @@ import java.util.Random;
 
 import es.uam.padsof.batalla5ejercitos.criaturas.Criatura;
 import es.uam.padsof.batalla5ejercitos.factorias.CriaturaFactoria;
-import es.uam.padsof.batalla5ejercitos.util.Dependency;
 
 
 public abstract class Ejercito<C extends Criatura> {
 	protected ArrayList<Tropa<C>> tropas;
 	Random rnd = new Random(Calendar.getInstance().getTimeInMillis());
 	
-	public Ejercito(Map<Class<? extends C>, List<Integer>> tropasMap) throws ClassNotFoundException, InstantiationException, IllegalAccessException
+	public Ejercito(Map<Class<? extends CriaturaFactoria<? extends C>>, List<Integer>> tropasMap) throws ClassNotFoundException, InstantiationException, IllegalAccessException
 	{
 		tropas = new ArrayList<Tropa<C>>();
 		
-		for(Class<? extends C> c : tropasMap.keySet())
+		for(Class<? extends CriaturaFactoria<? extends C>> c : tropasMap.keySet())
 		{
-			CriaturaFactoria<? extends C> factoria = Dependency.Resolve(c);
+			CriaturaFactoria<? extends C> factoria = c.newInstance();
 			List<Integer> tropasList = tropasMap.get(c);
 			
 			for(Integer numTropas : tropasList)
