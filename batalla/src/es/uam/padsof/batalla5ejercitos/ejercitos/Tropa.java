@@ -1,5 +1,9 @@
 package es.uam.padsof.batalla5ejercitos.ejercitos;
 
+/**
+ * @author Guillermo Julián Moreno - Víctor de Juan Sanz
+ * 
+ */
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
@@ -13,15 +17,16 @@ public class Tropa<C extends Criatura> {
 	private ArrayList<C> guerreros;
 	private String nombreCriatura;
 	private Random rnd;
-	
+
 	public Tropa(CriaturaFactoria<? extends C> factoria, int numeroGuerreros) {
 		numGuerreros = numeroGuerreros;
 		guerreros = new ArrayList<C>();
-		rnd = new Random(Calendar.getInstance().getTimeInMillis() + numeroGuerreros);
-		
+		rnd = new Random(Calendar.getInstance().getTimeInMillis()
+				+ numeroGuerreros);
+
 		C dummy = factoria.crearCriatura();
 		nombreCriatura = dummy.getClass().getSimpleName();
-		
+
 		for (int i = 0; i < numeroGuerreros; ++i)
 			guerreros.add(factoria.crearCriatura());
 	}
@@ -31,9 +36,9 @@ public class Tropa<C extends Criatura> {
 	}
 
 	public void atacar(Tropa<?> oponente) {
-		if(oponente.estaAniquilada())
+		if (oponente.estaAniquilada())
 			return;
-		
+
 		for (Criatura aux : guerreros)
 			aux.atacar(oponente.getCriatura());
 	}
@@ -61,8 +66,8 @@ public class Tropa<C extends Criatura> {
 	}
 
 	@Override
-	public String toString() {		
-		return "Tropa de " + nombreCriatura
-				+ "\n\tNumero de guerreros: " + this.numGuerreros;
+	public String toString() {
+		return "Tropa de " + nombreCriatura + "\n\tNumero de guerreros: "
+				+ this.numGuerreros;
 	}
 }

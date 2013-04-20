@@ -1,5 +1,9 @@
 package es.uam.padsof.batalla5ejercitos.ejercitos;
 
+/**
+ * @author Guillermo Julián Moreno - Víctor de Juan Sanz
+ * 
+ */
 import java.util.List;
 import java.util.Map;
 
