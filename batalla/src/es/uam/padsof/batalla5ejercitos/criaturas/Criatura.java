@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Random;
 
 /**
- * @author Guillermo Juli??n Moreno - V??ctor de Juan Sanz
+ * @author Guillermo Julián Moreno - Víctor de Juan Sanz
  * 
  */
 public abstract class Criatura {
@@ -17,6 +17,13 @@ public abstract class Criatura {
 	protected int heridas;
 	protected double prob_curar;
 
+	/*
+	 * Definimos 2 constructores distintos en función de si vamos a crear
+	 * primeros nacidos (utilizaremos el primero que tiene como 4 argumento la
+	 * probailidad de curarHerdias()) o si no vamos a crear un primer nacido,
+	 * que utilizaremos el segundo constructor, que pondrá a 0 la variable
+	 * prob_curar
+	 */
 	public Criatura(int ataque, int defensa, int vida, double prob_curar) {
 		this.ataque = ataque;
 		this.defensa = defensa;
@@ -70,9 +77,9 @@ public abstract class Criatura {
 	}
 
 	/**
-	 * Indica si la criatura est?? muerta o no.
+	 * Indica si la criatura está muerta o no.
 	 * 
-	 * @return
+	 * @return true si la criatura está muerta
 	 */
 	public boolean estaMuerto() {
 		return (this.vida <= 0);
@@ -120,12 +127,13 @@ public abstract class Criatura {
 		this.vida -= this.heridas;
 		int i;
 		// Por eficiencia.
-		if (prob_curar > 0)
+		if (this.getProb_curar() > 0)
 			for (i = 0; i < this.heridas; ++i)
 				this.curarHeridas();
 		this.heridas = 0;
 	}
 
+	@Override
 	public String toString() {
 		return this.getClass() + "\nVida: " + this.vida + "\nAtaque: "
 				+ this.ataque + "\nDefensa: " + this.defensa;
