@@ -1,7 +1,7 @@
 package es.uam.padsof.batalla5ejercitos.criaturas;
 
 /**
- * @author Guillermo Juli??n Moreno - V??ctor de Juan Sanz
+ * @author Guillermo Julián Moreno - Víctor de Juan Sanz
  * 
  */
 public class CriaturaLibre extends Criatura {

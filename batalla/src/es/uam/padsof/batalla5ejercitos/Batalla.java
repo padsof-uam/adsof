@@ -1,15 +1,15 @@
 package es.uam.padsof.batalla5ejercitos;
 
-/**
- * @author Guillermo Julián Moreno - Víctor de Juan Sanz
- * 
- */
 import java.util.*;
 
 import es.uam.padsof.batalla5ejercitos.criaturas.*;
 import es.uam.padsof.batalla5ejercitos.ejercitos.*;
 import es.uam.padsof.batalla5ejercitos.factorias.*;
 
+/**
+ * @author Guillermo Julián Moreno - Víctor de Juan Sanz
+ * 
+ */
 public class Batalla {
 	private EjercitoLibre ejLibre;
 	private EjercitoOscuro ejOscuro;
@@ -22,15 +22,14 @@ public class Batalla {
 		coMap.put(OrcoFactoria.class, Arrays.asList(25, 75));
 		coMap.put(HuargoFactoria.class, Arrays.asList(100));
 		coMap.put(OrcoUrukHaiFactoria.class, Arrays.asList(30));
-		
-		Map<Class<? extends CriaturaFactoria<? extends CriaturaLibre>>, List<Integer>> clMap = 
-				new HashMap<Class<? extends CriaturaFactoria<? extends CriaturaLibre>>, List<Integer>>();
-		
-		clMap.put(HumanoFactoria.class, Arrays.asList(50,50,50,50));
+
+		Map<Class<? extends CriaturaFactoria<? extends CriaturaLibre>>, List<Integer>> clMap = new HashMap<Class<? extends CriaturaFactoria<? extends CriaturaLibre>>, List<Integer>>();
+
+		clMap.put(HumanoFactoria.class, Arrays.asList(50, 50, 50, 50));
 		clMap.put(ElfoFactoria.class, Arrays.asList(150));
 		clMap.put(EnanoFactoria.class, Arrays.asList(25));
 		clMap.put(ElfoNoldorFactoria.class, Arrays.asList(40));
-		
+
 		ejLibre = new EjercitoLibre(clMap);
 		ejOscuro = new EjercitoOscuro(coMap);
 	}
